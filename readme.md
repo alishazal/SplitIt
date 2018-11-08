@@ -43,8 +43,6 @@ This will have a reference to the user who created the expense, its description,
 
 ## Wireframes
 
-(___TODO__: wireframes for all of the pages on your site; they can be as simple as photos of drawings or you can use a tool like Balsamiq, Omnigraffle, etc._)
-
 / - Page for login/register
 
 ![login](documentation/login.jpeg)
@@ -70,7 +68,7 @@ This will have a reference to the user who created the expense, its description,
 
 ![sitemap](documentation/sitemap.png)
 
-## User Stories or Use Cases
+## User Stories
 
 1. As non-registered user, I can only register a new account with the site.
 2. As a registered user, I can log in to the site
@@ -101,7 +99,7 @@ This will have a reference to the user who created the expense, its description,
 **8 points total out of 8 required points** 
 
 
-## [Link to Initial Main Project File](app.js) 
+## [Link to Initial Main Project File](src/app.js) 
 
 ## Annotations / References Used
 None as of Milestone 1.
