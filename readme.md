@@ -39,7 +39,7 @@ This will have a reference to the user who created the expense, its description,
 }
 ```
 
-## [Link to Commented First Draft Schema](db.js) 
+## [Link to Commented First Draft Schema](src/db.js) 
 
 ## Wireframes
 
