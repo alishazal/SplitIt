@@ -47,23 +47,23 @@ This will have a reference to the user who created the expense, its description,
 
 / - Page for login/register
 
-![login](documentation/login.png)
+![login](documentation/login.jpeg)
 
 /home - Page for showing all expenses associated to an account
 
-![home](documentation/home.png)
+![home](documentation/home.jpeg)
 
 /home/add - Page for adding an expense using a form
 
-![add](documentation/add.png)
+![add](documentation/add.jpeg)
 
 /home/balance - Page for showing balance between each friend
 
-![balance](documentation/balance.png)
+![balance](documentation/balance.jpeg)
 
 /home/settle
 
-![settle](documentation/settle.png)
+![settle](documentation/settle.jpeg)
 
 
 ## Site map
