@@ -11,12 +11,14 @@ The application will store Users and Expenses. Users can have multiple Expenses 
 
 An example user:
 
-This will contain the username, password and all the expenses saved by the user.
+This will contain the username, password, email, full name and all the expenses saved by the user.
 
 ```javascript
 {
   username: "alishazal",
-  hash: // a password hash,
+  hash: "74cca9cb59250c50cfb4ff39e7540621"
+  name: "Ali Shazal"
+  email: "as10505@nyu.edu"
   expenses: // an array of references to Expense documents
 }
 ```
@@ -43,23 +45,30 @@ This will have a reference to the user who created the expense, its description,
 
 (___TODO__: wireframes for all of the pages on your site; they can be as simple as photos of drawings or you can use a tool like Balsamiq, Omnigraffle, etc._)
 
-/list/create - page for creating a new shopping list
+/ - Page for login/register
 
-<!-- ![list create](documentation/list-create.png) -->
+![login](documentation/login.png)
 
-/list - page for showing all shopping lists
+/home - Page for showing all expenses associated to an account
 
-<!-- ![list](documentation/list.png) -->
+![home](documentation/home.png)
 
-/list/slug - page for showing specific shopping list
+/home/add - Page for adding an expense using a form
 
-<!-- ![list](documentation/list-slug.png) -->
+![add](documentation/add.png)
+
+/home/balance - Page for showing balance between each friend
+
+![balance](documentation/balance.png)
+
+/home/settle
+
+![settle](documentation/settle.png)
+
 
 ## Site map
 
-(___TODO__: draw out a site map that shows how pages are related to each other_)
-
-Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia/commons/2/20/Sitemap_google.jpg), but you can create one without the screenshots, drop shadows, etc. ... just names of pages and where they flow to.
+![sitemap](documentation/sitemap.png)
 
 ## User Stories or Use Cases
 
@@ -76,13 +85,13 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 
 ## Research Topics
 
-* (5 points) Angular
+* (6 points) Angular
     * I want to learn and explore Angular, so I'm using that as my front-end library.
     * In class we've learned everything in the MEAN stack except Angular, so learning it will make me a MEAN stack developer.
     * It's widely and is very powerful.
     * Since it's very challenging to learn, I've assigned it 5 points.
 
-* (3 points) Integrate user authentication
+* (3 points) User authentication using PassportJS
     * Only authenticated users will be able to use my app.
     * I will use PassportJS for this.
     * Passport is very simple and easy to use, which is great since I only have 3 weeks for my project.
@@ -95,5 +104,4 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 ## [Link to Initial Main Project File](app.js) 
 
 ## Annotations / References Used
-
 None as of Milestone 1.

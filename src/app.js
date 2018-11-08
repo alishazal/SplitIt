@@ -22,13 +22,14 @@ const Expense = mongoose.model('Expense');
 // enable sessions
 const session = require('express-session');
 const sessionOptions = {
-    secret: 'secret cookie thang (store this elsewhere!)',
+    secret: 'secret for signing',
     resave: true,
     saveUninitialized: true
 };
 app.use(session(sessionOptions));
 
 // view template
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // homepage
