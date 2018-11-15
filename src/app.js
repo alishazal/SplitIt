@@ -26,35 +26,47 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+function isLoggedIn(req, res, next){
+    if (req.isAuthenticated()){
+        return next();
+    }
+    res.redirect("/login");
+}
+
+app.use((req, res, next) => {
+    res.locals.currentUser = req.user;
+    next();
+});
 
 app.get('/', (req, res) => {
     res.redirect('/home');
 });
 
 app.get('/home', (req, res) => {
+    console.log(req.user);
     res.render('index');
 });
 
-app.get('/home/addExpense', (req, res) => {
-    res.render('addExpense');
+app.get('/home/addBill', isLoggedIn, (req, res) => {
+    res.render('add-bill');
 });
 
-app.get('/home/balance', (req, res) => {
+app.get('/home/balance', isLoggedIn, (req, res) => {
     res.render('balance');
 });
 
-app.get('/home/settle', (req, res) => {
+app.get('/home/settle', isLoggedIn, (req, res) => {
     res.render('settle');
 });
 
-app.get('/home/addFriend', (req, res) => {
+app.get('/home/addFriend', isLoggedIn, (req, res) => {
     res.render('addFriend');
 });
 
-app.get('/home/friends', (req, res) => {
+app.get('/home/friends', isLoggedIn, (req, res) => {
     res.render('friends');
 });
 
@@ -76,7 +88,7 @@ app.post('/register', (req, res) => {
             return res.render('register', {message: err});
         }
         passport.authenticate("local")(req, res, () => {
-            res.redirect('/');
+            res.redirect('/home');
         });
     });
 }); 
@@ -86,9 +98,15 @@ app.get('/login', (req, res) => {
 });
 
 app.post('/login', passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/home",
     failureRedirect: "/login"
-    }));
+    })
+);
+
+app.get("/logout", (req, res) => {
+    req.logout();
+    res.redirect("/home");
+});
 
 app.get('*', function (req, res) {
     res.render("404page");
