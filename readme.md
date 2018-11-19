@@ -7,19 +7,20 @@ Splitting food and grocery bills get complicated when you're in college and hang
 SplitIt is a web app that records all your bills and allows you to keep a track of shared expenses so that you get paid the right amount! Users can register and log in. Once they're logged in, they can create, view and get a summary of all expenses. They can also settle up expenses and remind friends about pending payments.
 
 ## Data Model
-The application will store Users and Expenses. Users can have multiple Expenses (via references).
+The application will store Users, Expenses and Friends. Users can have multiple Expenses and Friends, both via references.
 
 An example user:
 
-This will contain the username, password, email, full name and all the expenses saved by the user.
+This will contain the username, password, email, and full name of the user.
 
 ```javascript
 {
-  username: "alishazal",
-  hash: "74cca9cb59250c50cfb4ff39e7540621"
-  name: "Ali Shazal"
-  email: "as10505@nyu.edu"
-  expenses: // an array of references to Expense documents
+    firstName: "Ali",
+    lastName: "Shazal",
+    email: "as10505@nyu.edu",
+    username: "alishazal",
+    salt: "c50cfb4ff39e7",
+    hash: "74cca9cb59250c50cfb4ff39e75406219250c50cfb4ff39"
 }
 ```
 
@@ -29,13 +30,26 @@ This will have a reference to the user who created the expense, its description,
 
 ```javascript
 {
-  user: // a reference to a User object
-  description: "Chipotle on Nov 7, 2018",
-  totalAmount: 13.75,
-  iPaid: true,
-  splitWays: 3,
-  splitBetween: ["Joe", "Sam"]
-  createdAt: // timestamp
+    user: // a reference to a User object
+    description: "Chipotle on Nov 7, 2018",
+    totalAmount: 13.75,
+    paidBy: "Ali,
+    splitBetween: ["Joe", "Sam"],
+    notes: "Just transfer the money online in my account",
+    createdAt: // timestamp
+}
+```
+
+An example friend:
+
+This will have a reference to the user who created it, full name and email address.
+
+```javascript
+{
+    user: // a reference to a User object
+    firstName: "Joe",
+    lastName: "Versoza",
+    email: "jversoza@nyu.edu",
 }
 ```
 
@@ -43,7 +57,7 @@ This will have a reference to the user who created the expense, its description,
 
 ## Wireframes
 
-/ - Page for login/register
+/login and /register - Pages for login and sign up
 
 ![login](documentation/login.jpeg)
 
@@ -51,7 +65,7 @@ This will have a reference to the user who created the expense, its description,
 
 ![home](documentation/home.jpeg)
 
-/home/add - Page for adding an expense using a form
+/home/addBill - Page for adding an expense using a form
 
 ![add](documentation/add.jpeg)
 
@@ -62,7 +76,6 @@ This will have a reference to the user who created the expense, its description,
 /home/settle
 
 ![settle](documentation/settle.jpeg)
-
 
 ## Site map
 
@@ -83,18 +96,17 @@ This will have a reference to the user who created the expense, its description,
 
 ## Research Topics
 
-* (6 points) Angular
-    * I want to learn and explore Angular, so I'm using that as my front-end library.
-    * In class we've learned everything in the MEAN stack except Angular, so learning it will make me a MEAN stack developer.
-    * It's widely and is very powerful.
-    * Since it's very challenging to learn, I've assigned it 5 points.
-
-* (3 points) User authentication using PassportJS
+* (5 points) User authentication using PassportJS
     * Only authenticated users will be able to use my app.
     * I will use PassportJS for this.
     * Passport is very simple and easy to use, which is great since I only have 3 weeks for my project.
     * It can easily be integrated with Express. 
     * I'll also have the option to intergrate 3rd party authentication (via Facebook, Google, etc).
+
+* (3 points) Unit Testing using Mocha/Chai
+    * I will write unit tests to check the back-end logic.
+    * The most popular frameworks in this regards are Mocha and Chai.
+    * In class, we've been using these frameworks from assignment, so I want to learn them by implementing them myself.
 
 **8 points total out of 8 required points** 
 
@@ -103,3 +115,5 @@ This will have a reference to the user who created the expense, its description,
 
 ## Annotations / References Used
 None as of Milestone 1.
+
+Milestone 2: [Udemy Tutorial](https://www.udemy.com/the-web-developer-bootcamp/) for passport authentication.
