@@ -95,7 +95,6 @@ app.post('/home/addBill', isLoggedIn, (req, res) => {
         }
     });
 
-    console.log(newBill);
 });
 
 app.get('/home/balance', isLoggedIn, (req, res) => {
@@ -156,4 +155,4 @@ app.get('*', function (req, res) {
     res.render("404page");
 });
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
