@@ -15,7 +15,8 @@ const expenseSchema = new mongoose.Schema({
     totalAmount: { type: Number, min: 0.01, required: true },
     paidBy: { type: String, required: true },
     splitBetween: { type: Array, required: true },
-    createdAt: { type: Date, required: true },
+    notes: { type: String},    
+    // createdAt: { type: Date, required: true },
 });
 
 const friendSchema = new mongoose.Schema({

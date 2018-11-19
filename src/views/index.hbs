@@ -1,1 +1,38 @@
-<h1>SplitIt</h1>
+<div class="text-center">
+    <h1>SplitIt</h1>
+
+    {{#if currentUser}}
+    <h4>Displaying all bills for you</h2>
+
+    <br>
+    {{#if expenses}}
+    <table class="table">
+        <tr>
+            <th>Description</th>
+            <th>Total Amount</th>
+            <th>Paid By</th>
+            <th>Split Between</th>
+            <th>Notes</th>
+        </tr>
+        
+        {{#each expenses}}
+          <tr>
+            <td>{{this.description}}</td>
+            <td>{{this.totalAmount}}</td>
+            <td>{{this.paidBy}}</td>
+            <td>{{this.splitBetween}}</td>
+            <td>{{this.notes}}</td>
+          </tr>
+        {{/each}}
+    </table> 
+    {{else}}
+    <p>Oops.. It looks like there's nothing to display here. Go ahead and <a href="/home/addBill">add some bills!</a></p>
+    {{/if}}
+    
+    {{else}}
+
+        <h3>Please <a href="/login">Login</a> or <a href="/register">Sign Up</a></h3>
+
+    {{/if}}
+
+</div>
