@@ -20,7 +20,8 @@ This will contain the username, password, email, and full name of the user.
     email: "as10505@nyu.edu",
     username: "alishazal",
     salt: "c50cfb4ff39e7",
-    hash: "74cca9cb59250c50cfb4ff39e75406219250c50cfb4ff39"
+    hash: "74cca9cb59250c50cfb4ff39e75406219250c50cfb4ff39",
+    calc: {{"Sam": 10}, {"Joe": 10}}
 }
 ```
 
@@ -32,10 +33,11 @@ This will have a reference to the user who created the expense, its description,
 {
     user: // a reference to a User object
     description: "Chipotle on Nov 7, 2018",
-    totalAmount: 13.75,
+    totalAmount: 30,
     paidBy: "Ali",
     splitBetween: ["Joe", "Sam"],
     notes: "Just transfer the money online in my account",
+    splitCalc: [{"Joe": 10}, {"Sam": 10}],
     createdAt: // timestamp
 }
 ```
