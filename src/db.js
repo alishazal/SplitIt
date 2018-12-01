@@ -6,8 +6,9 @@ const userSchema = new mongoose.Schema({
     lastName: { type: String, required: true },
     email: { type: String, required: true }, 
     username: { type: String, required: true, unique: true },
-    password: { type: String}
-});
+    password: { type: String},
+    calc: { type: Object, required: true}
+}, { minimize: false });
 
 const expenseSchema = new mongoose.Schema({
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
@@ -15,15 +16,17 @@ const expenseSchema = new mongoose.Schema({
     totalAmount: { type: Number, min: 0.01, required: true },
     paidBy: { type: String, required: true },
     splitBetween: { type: Array, required: true },
-    notes: { type: String},    
-    // createdAt: { type: Date, required: true },
-});
+    notes: { type: String},
+    splitCalc: { type: Array, require: true}
+}, { timestamps: { createdAt: 'created_at'} }
+);
 
 const friendSchema = new mongoose.Schema({
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    email: { type: String, required: true }, 
+    email: { type: String, required: true},
+
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -52,4 +55,4 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
 }
 
 
-mongoose.connect(dbconf);
+mongoose.connect(dbconf, { useNewUrlParser: true });

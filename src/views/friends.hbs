@@ -1,1 +1,23 @@
 <h1>Displaying All Friends</h1>
+<br> 
+{{#if message}}
+<div class="alert alert-danger" role="alert">{{ message }}</div>
+{{/if}}
+{{#if friends}}
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        {{#each friends}}
+            <tr>
+                <td>{{this.firstName}} {{this.lastName}}</td>
+                <td>{{this.email}}</td>
+            </tr>
+        {{/each}}
+    </table>
+{{else}}
+    <p>Wow, looks like you have no friends. Let's
+        <a href="/home/addFriend">add some!</a>
+    </p>
+{{/if}}

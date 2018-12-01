@@ -5,23 +5,42 @@
     <h4>Displaying all bills for you</h2>
 
     <br>
+     {{#if message}}
+    <div class="alert alert-danger" role="alert">{{ message }}</div>
+    {{/if}}
+
     {{#if expenses}}
     <table class="table">
         <tr>
             <th>Description</th>
             <th>Total Amount</th>
             <th>Paid By</th>
-            <th>Split Between</th>
+            <th>Shared With</th>
             <th>Notes</th>
+            <th>Created At</th>
         </tr>
         
         {{#each expenses}}
           <tr>
             <td>{{this.description}}</td>
-            <td>{{this.totalAmount}}</td>
+            <td>${{this.totalAmount}}</td>
             <td>{{this.paidBy}}</td>
-            <td>{{this.splitBetween}}</td>
-            <td>{{this.notes}}</td>
+            <td>
+                <ul>
+                {{#each this.splitBetween}}
+                    <li>{{this}}</li>
+                {{/each}}
+                </ul>
+            </td>
+            <td>
+                {{#if this.notes}}
+                    {{this.notes}}
+                {{else}}
+                    N/A
+                {{/if}}
+                
+            </td>
+            <td>{{this.created_at}}</td>
           </tr>
         {{/each}}
     </table> 

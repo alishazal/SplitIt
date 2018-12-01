@@ -1,1 +1,34 @@
-<h1>Balance</h1>
+
+<div class="container w-50 text-center">
+    <h1>Balance</h1>
+
+    <br> 
+    {{#if message}}
+        <div class="alert alert-danger" role="alert">{{ message }}</div>
+    {{/if}}
+
+    {{#if finalBalance}}
+    
+    <table class="table">
+        <tr>
+            <th>Email</th>
+            <th>Owes You</th>
+        </tr>
+    
+        {{#each finalBalance}}
+        <tr>
+            <td>{{this.email}}</td>
+            <td>${{this.balance}}</td>
+        </tr>
+        {{/each}}
+    </table>
+
+    {{else}}
+        <p>Please
+            <a href="/home/addBill">add some bills</a>
+            before you view your balance.
+        </p>
+        
+    {{/if}}
+
+</div>

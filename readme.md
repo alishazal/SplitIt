@@ -33,7 +33,7 @@ This will have a reference to the user who created the expense, its description,
     user: // a reference to a User object
     description: "Chipotle on Nov 7, 2018",
     totalAmount: 13.75,
-    paidBy: "Ali,
+    paidBy: "Ali",
     splitBetween: ["Joe", "Sam"],
     notes: "Just transfer the money online in my account",
     createdAt: // timestamp
@@ -96,14 +96,14 @@ This will have a reference to the user who created it, full name and email addre
 
 ## Research Topics
 
-* (5 points) User authentication using PassportJS
+* (6 points) User authentication using PassportJS
     * Only authenticated users will be able to use my app.
     * I will use PassportJS for this.
     * Passport is very simple and easy to use, which is great since I only have 3 weeks for my project.
     * It can easily be integrated with Express. 
     * I'll also have the option to intergrate 3rd party authentication (via Facebook, Google, etc).
 
-* (3 points) Unit Testing using Mocha/Chai
+* (2 points) Unit Testing using Mocha/Chai
     * I will write unit tests to check the back-end logic.
     * The most popular frameworks in this regards are Mocha and Chai.
     * In class, we've been using these frameworks from assignment, so I want to learn them by implementing them myself.

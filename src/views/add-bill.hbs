@@ -1,40 +1,58 @@
 <div class="container w-50 text-center">
+
     <h1 class="addBill">Add A Bill</h1>
     <hr>
-    <form class="justify-content-center" action="/home/addBill" method="POST">
-        <div class="form-group">
-            <label for="description">Description:</label>
-            <input class="form-control" type="text" name="description" placeholder="Enter a description" required>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-6">
-                <label for="totalAmount">Total Amount:</label>
-                <input class="form-control" type="number" min="0.01" step="0.01" name="totalAmount" placeholder="$0.00" required>
-            </div>
-            <div class="form-group col-6">
-                <label for="paidBy">Paid By:</label>
-                <input class="form-control" type="email" name="paidBy" placeholder="john@nyu.edu" required>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="splitBetween">Split Between (seperated by commas):</label>
-            <input class="form-control" type="text" name="splitBetween" placeholder="john@nyu.edu, emma@nyu.edu, sam@nyu.edu" required>
-        </div>
-        <div class="form-group">
-            <label for="notes">Notes:</label>
-            <input class="form-control" type="text" name="notes" placeholder="I'll pay this back next month :(">
-        </div>
-        <div>
-            <input class="btn btn-dark" type="submit" value="Add">
-            <input class="btn btn-dark" type="reset" value="Reset">
-        </div>
-    </form>
 
-    {{!-- user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-    description: { type: String, required: true },
-    totalAmount: { type: Number, min: 0.01, required: true },
-    paidBy: { type: String, required: true },
-    splitBetween: { type: Array, required: true },
-    notes: { type: String, required: true },    
-    createdAt: { type: Date, required: true }, --}}
+     {{#if message}}
+    <div class="alert alert-danger" role="alert">{{ message }}</div>
+    {{/if}}
+
+    {{#if friends}}
+        <form class="justify-content-center" action="/home/addBill" method="POST">
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <input class="form-control" type="text" name="description" placeholder="Enter a description" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label for="totalAmount">Total Amount:</label>
+                    <input class="form-control" type="number" min="0.01" step="0.01" name="totalAmount" placeholder="$0.00" required>
+                </div>
+                <div class="form-group col-6">
+                    <label for="paidBy">Paid By:</label>
+                    <input type="text" class="paid-by form-control" name="paidBy" value="{{currentUser.email}}" disabled required>
+                </div>
+            </div>
+            <div id="mySplit" class="form-group">
+                <label for="splitBetween">Split Between:</label>
+                <select class="split-friends form-control" name="splitBetween" multiple="multiple" required>
+                    {{#each friends}}
+                        <option value="{{this.email}}">{{this.email}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="notes">Notes:</label>
+                <input class="form-control" type="text" name="notes" placeholder="I'll pay this back next month :(">
+            </div>
+            <div>
+                <input class="btn btn-dark" type="submit" value="Add">
+                <input class="btn btn-dark" type="reset" value="Reset">
+            </div>
+        </form>
+    {{else}}
+        <p>Please
+            <a href="/home/addFriend">add some friends</a>
+            before you add your bills.
+        </p>
+    {{/if}}
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('.split-friends').select2({
+            dropdownParent: $('#mySplit')
+        });
+    });
+</script>
