@@ -1,5 +1,10 @@
 # SplitIt
 
+## Currently Hosted on Courant's Web Server
+<http://linserv1.cims.nyu.edu:32283>
+
+Note: still up as of Dec 16, 2018; might be taken down in spring semester.
+
 ## Overview
 
 Splitting food and grocery bills get complicated when you're in college and hanging out with the same group of friends. Its a hassle to keep a track of who owes whom and how much, specially when the number of bills starts increasing. And that is why we have SplitIt!
