@@ -55,30 +55,6 @@ This will have a reference to the user who created it, full name and email addre
 }
 ```
 
-## [Link to Commented First Draft Schema](src/db.js) 
-
-## Wireframes
-
-/login and /register - Pages for login and sign up
-
-![login](documentation/login.jpeg)
-
-/home - Page for showing all expenses associated to an account
-
-![home](documentation/home.jpeg)
-
-/home/addBill - Page for adding an expense using a form
-
-![add](documentation/add.jpeg)
-
-/home/balance - Page for showing balance between each friend
-
-![balance](documentation/balance.jpeg)
-
-/home/settle
-
-![settle](documentation/settle.jpeg)
-
 ## Site map
 
 ![sitemap](documentation/sitemap.png)
@@ -105,17 +81,6 @@ This will have a reference to the user who created it, full name and email addre
     * It can easily be integrated with Express. 
     * I'll also have the option to intergrate 3rd party authentication (via Facebook, Google, etc).
 
-* (2 points) Unit Testing using Mocha/Chai
+* Unit Testing using Mocha
     * I will write unit tests to check the back-end logic.
-    * The most popular frameworks in this regards are Mocha and Chai.
-    * In class, we've been using these frameworks from assignment, so I want to learn them by implementing them myself.
-
-**8 points total out of 8 required points** 
-
-
-## [Link to Initial Main Project File](src/app.js) 
-
-## Annotations / References Used
-None as of Milestone 1.
-
-Milestone 2: [Udemy Tutorial](https://www.udemy.com/the-web-developer-bootcamp/) for passport authentication.
+    * The most popular framework in this regards is Mocha.
